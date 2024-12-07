@@ -16,7 +16,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     # Вставьте сюда токен вашего бота
-    BOT_TOKEN = "7223315998:AAGryp3B4y9OoADvPZZAZXCEFPm2wv84JlY"
+    BOT_TOKEN = "TOKEN"
 
     # Создание приложения Telegram
     application = Application.builder().token(BOT_TOKEN).build()
