@@ -75,6 +75,7 @@ def photo(message):
     print('classified as: ' + prediction)
     print('waiting for message...')
 
+
 def main():
     model.load_state_dict(torch.load('model/mobilenetv3_large_100_best.pth', map_location=torch.device('cpu')))
     model.eval()
