@@ -51,6 +51,10 @@ def predict_image(image):
 
 bot = telebot.TeleBot(token)
 
+@bot.message_handler(commands=["start"])
+def send_welcome(message):
+    bot.send_message(message.chat.id, "Привет! Отправь мне фото, и я его классифицирую.")
+
 @bot.message_handler(content_types=["photo"])
 def photo(message):
     print('message.photo =', message.photo)
@@ -70,7 +74,6 @@ def photo(message):
     bot.send_message(message.chat.id, 'Classified as: ' + prediction)
     print('classified as: ' + prediction)
     print('waiting for message...')
-
 
 def main():
     model.load_state_dict(torch.load('model/mobilenetv3_large_100_best.pth', map_location=torch.device('cpu')))
