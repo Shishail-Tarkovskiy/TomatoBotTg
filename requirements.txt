@@ -2,4 +2,4 @@ telebot
 timm
 torch
 albumentations
-opencv-python
+opencv-python-headless
