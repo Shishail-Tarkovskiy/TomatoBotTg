@@ -67,6 +67,7 @@ def generate_message(prediction) -> str:
 
     return message
 
+
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=["start"])
@@ -89,10 +90,9 @@ def photo(message):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     prediction = predict_image(image)
 
-    bot.send_message(message.chat.id, 'Classified as: ' + prediction)
+    bot.send_message(message.chat.id, generate_message(prediction))
     print('classified as: ' + prediction)
     print('waiting for message...')
-
 
 def main():
     model.load_state_dict(torch.load('model/mobilenetv3_large_100_best.pth', map_location=torch.device('cpu')))
