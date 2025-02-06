@@ -49,6 +49,24 @@ def predict_image(image):
     result = class_names[int(preds.cpu().numpy())]
     return result
 
+def generate_message(prediction) -> str:
+    if prediction == 'Bacterial_spot':
+        message = 'Диагностировано заболевание: черная бактериальная пятнистость, подробнее см. здесь: https://u.to/UZB0IQ. Полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+    elif prediction == 'Black_mold':
+        message = 'Диагностировано заболевание: церкоспороз, подробнее см. здесь: https://u.to/OJd0IQ. Полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+    elif prediction == 'Early_blight':
+        message = 'Диагностировано заболевание: альтернариоз, подробнее см. здесь: https://u.to/sraXHQ. Полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+    elif prediction == 'Late_blight':
+        message = 'Диагностировано заболевание: фитофтороз пасленовых, подробнее см. здесь: https://u.to/9ph0IQ. Полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+    elif prediction == 'Mosaic_virus':
+        message = 'Диагностировано заболевание: мозаичный вирус, подробнее см. здесь: https://u.to/V5x0IQ. Полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+    elif prediction == 'Septoria_spot':
+        message = 'Диагностировано заболевание: cепториоз, подробнее см. здесь: https://u.to/Kp50IQ. Полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+    else:
+        message = 'Ваше растение здорово. На всякий случай: полное руководство по болезням помидоров: https://u.to/DqN0IQ'
+
+    return message
+
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=["start"])
