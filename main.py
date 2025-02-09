@@ -8,7 +8,7 @@ import albumentations.pytorch as AP
 from albumentations import (Compose)
 import telebot
 
-token = '7611655032:AAE9hyHiuMSlLRulivVpKul-bBbrnHM3nvA'
+token = ''
 
 class MyMobileV3Net(torch.nn.Module):
     def __init__(self, model_name='mobilenetv3_large_100', pretrained=False):
